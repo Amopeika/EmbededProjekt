@@ -9,7 +9,7 @@
 *	ReadRows() reads if a button is pressed for each row one by one
 *	DecodeKeyboard() decodes what char was pressed by looking up collumn and row number in multidimensional array
 *	menu() shows the menu and send the parameters to change in case of button press
-*
+* 
 */
 #include <stdio.h>
 #include "stdio_setup.h"
