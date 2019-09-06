@@ -3,20 +3,20 @@
 *
 *	Author: Kevin Pike Darmer
 *
-*	Menu Display and Choices
-*
-*	1 |
-*	2 |
-*	3 |
-*	4 |
-*	5 |
-*	6 |
-*	7 |
-*	8 | NEXT
-*	9 | BACK
-*	0 |
-*	* |
-*	# |
+*  Key|Menu Display and Choices
+*  ---|-------------------------
+*	1 | 1
+*	2 | 2
+*	3 | 3
+*	4 | 4
+*	5 | 5
+*	6 | 6
+*	7 | 7
+*	8 | 8/NEXT
+*	9 | 9/BACK
+*	0 | 0
+*	* | Accept
+*	# | Enter
 *	A | Temparatur
 *	B | Fan Speed
 *	C |	RGB Coloring
@@ -38,6 +38,7 @@ volatile static int R;
 void menu(char decodedChar)
 {
 	char buffer[7];
+	///Sends the menu screen to the display first time the menu is loaded
 	if (loadmenu == 0){
 		lcd_clrscr();
 		lcd_puts("Menu:");
@@ -67,6 +68,8 @@ void menu(char decodedChar)
 		case '7':
 		keypressint = 7;
 		break;
+		
+		///Every time 8 is pressed while in menu increasing menustep to show different text on every keypress
 		case '8':
 		keypressint = 8;
 		if (menustep == 0){
@@ -97,6 +100,7 @@ void menu(char decodedChar)
 			lcd_puts("Get to Main Menu");
 			menustep++;
 		}
+		///Resets to the main menu start screen
 		else if (menustep == 4){
 			menustep = 0;
 			loadmenu = 0;
@@ -160,6 +164,8 @@ void menu(char decodedChar)
 		menustep = 0;
 		loadmenu = 0;
 		break;
+		
+		///Creates an integer from the keyspressed
 		case '*':
 		if (menustep = 30){
 			R = (R*10) + keypressint;
@@ -168,6 +174,8 @@ void menu(char decodedChar)
 			lcd_puts(buffer);
 		}
 		break;
+		
+		///Passes the integer to the Red LED Port
 		case '#':
 		if (menustep = 30){
 			LED_RED = R;

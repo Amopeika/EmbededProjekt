@@ -1,23 +1,28 @@
 /**
-*	Titel: main.c
+*	Titel: metrixKeypadLib.c
 *
 *	Author: Kevin Pike Darmer
 *
 *	Keypad Config
 *
-*	Keypad Cable -- Port -- Arduino
+*	ColumnScan() sets the collumns to low one by one
+*	ReadRows() reads if a button is pressed for each row one by one
+*	DecodeKeyboard() decodes what char was pressed by looking up collumn and row number in multidimensional array
+*	menu() shows the menu and send the parameters to change in case of button press
 *
-*	4 -- C1 -- PC0 -- 37
-*	3 -- C2 -- PC1 -- 36
-*	2 -- C3 -- PC2 -- 35
-*	1 -- C4 -- PC3 -- 34
+*	  Keypad Cable	|  Collumn/Row	|  Port	| Arduino
+*	----------------|---------------|-------|--------
+*			4		|		C1		|  PC0	|   37
+*			3		|		C2		|  PC1  |   36
+*			2		|		C3		|  PC2  |   35
+*			1		|		C4		|  PC3  |   34
+*			5		|		R1		|  PC4	|	33
+*			6		|		R2		|  PC5	|	32
+*			7		|		R3		|  PC6	|	31
+*			8		|		R4		|  PC7	|	30
 *
-*	5 -- R1 -- PC4 -- 33
-*	6 -- R2 -- PC5 -- 32
-*	7 -- R3 -- PC6 -- 31
-*	8 -- R4 -- PC7 -- 30
-*
-*	 R1 | R2 | R3 | R4 | C1 | C2 | C3 | C4 |Char
+*	 R1 |  R2 | R3 | R4 | C1 | C2 | C3 | C4 |Char
+*	----|-----|----|----|----|----|----|----|----
 *	  0 |	1 |  1 |  1 |  0 |	1 |	 1 |  1 |  *
 *	  1 |	0 |  1 |  1 |  0 |	1 |	 1 |  1 |  7
 *	  1 |	1 |  0 |  1 |  0 |	1 |	 1 |  1 |  4

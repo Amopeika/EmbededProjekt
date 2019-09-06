@@ -1,3 +1,12 @@
+/**
+*	Titel: init.h
+*
+*	Author: Kevin Pike Darmer
+*
+*	Initialisation Header
+*
+*
+*/
 #ifndef init_H_
 #define init_H_
 

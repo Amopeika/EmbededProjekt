@@ -1,3 +1,12 @@
+/**
+*	Titel: metrixKeypadLib.h
+*
+*	Author: Kevin Pike Darmer
+*
+*	Keyboard Header
+*
+*
+*/
 #ifndef metrixKeypadLib_H_
 #define metrixKeypadLib_H_
 
