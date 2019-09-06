@@ -274,34 +274,34 @@ void init(void)
 {
 	UartInit();
      2ba:	e6 d2       	rcall	.+1484   	; 0x888 <UartInit>
-	lcd_init(LCD_DISP_ON);
+	lcd_init(LCD_DISP_ON);																///LCD Initialisation
      2bc:	8c e0       	ldi	r24, 0x0C	; 12
      2be:	aa d0       	rcall	.+340    	; 0x414 <lcd_init>
-	PORTC |= (1<<PC4) | (1<<PC5) | (1<<PC6) | (1<<PC7);									//Set PC4 PC5 PC6 PC7 as Pull-UP
+	PORTC |= (1<<PC4) | (1<<PC5) | (1<<PC6) | (1<<PC7);									///Set PC4 PC5 PC6 PC7 as Pull-UP
      2c0:	88 b1       	in	r24, 0x08	; 8
      2c2:	80 6f       	ori	r24, 0xF0	; 240
      2c4:	88 b9       	out	0x08, r24	; 8
-	DDRC |= 0x0F;																		//Set PC0 PC1 PC2 PC3 to Output
+	DDRC |= 0x0F;																		///Set PC0 PC1 PC2 PC3 to Output
      2c6:	87 b1       	in	r24, 0x07	; 7
      2c8:	8f 60       	ori	r24, 0x0F	; 15
      2ca:	87 b9       	out	0x07, r24	; 7
-	TCCR3A |= (1<<COM1A1) | (1<<COM1B1) | (1<<COM1C1);
+	TCCR3A |= (1<<COM1A1) | (1<<COM1B1) | (1<<COM1C1);									///Set the Terminal Counter Control Register to Compare Output Mode
      2cc:	e0 e9       	ldi	r30, 0x90	; 144
      2ce:	f0 e0       	ldi	r31, 0x00	; 0
      2d0:	80 81       	ld	r24, Z
      2d2:	88 6a       	ori	r24, 0xA8	; 168
      2d4:	80 83       	st	Z, r24
-	TCCR3A |= (1<<WGM10) | (1<<WGM11);
+	TCCR3A |= (1<<WGM10) | (1<<WGM11);													///Set the Terminal Counter Control Register to Waveform Generation Mode
      2d6:	80 81       	ld	r24, Z
      2d8:	83 60       	ori	r24, 0x03	; 3
      2da:	80 83       	st	Z, r24
-	TCCR3B |= (1<<CS01) | (1<<CS00);
+	TCCR3B |= (1<<CS01) | (1<<CS00);													///Set the Terminal Counter Control Register Clockset
      2dc:	e1 e9       	ldi	r30, 0x91	; 145
      2de:	f0 e0       	ldi	r31, 0x00	; 0
      2e0:	80 81       	ld	r24, Z
      2e2:	83 60       	ori	r24, 0x03	; 3
      2e4:	80 83       	st	Z, r24
-	DDRE |= (1<<PE3) | (1<<PE4) | (1<<PE5);
+	DDRE |= (1<<PE3) | (1<<PE4) | (1<<PE5);												///Set PE3 PE4 PE5 to Output
      2e6:	8d b1       	in	r24, 0x0d	; 13
      2e8:	88 63       	ori	r24, 0x38	; 56
      2ea:	8d b9       	out	0x0d, r24	; 13
@@ -606,6 +606,7 @@ void menu(char decodedChar)
      48e:	cd bf       	out	0x3d, r28	; 61
      490:	18 2f       	mov	r17, r24
 	char buffer[7];
+	///Sends the menu screen to the display first time the menu is loaded
 	if (loadmenu == 0){
      492:	80 91 c2 02 	lds	r24, 0x02C2	; 0x8002c2 <loadmenu>
      496:	90 91 c3 02 	lds	r25, 0x02C3	; 0x8002c3 <loadmenu+0x1>
@@ -702,6 +703,8 @@ void menu(char decodedChar)
      53a:	73 c1       	rjmp	.+742    	; 0x822 <menu+0x3a8>
 		break;
      53c:	88 e0       	ldi	r24, 0x08	; 8
+		
+		///Every time 8 is pressed while in menu increasing menustep to show different text on every keypress
 		case '8':
 		keypressint = 8;
      53e:	90 e0       	ldi	r25, 0x00	; 0
@@ -817,6 +820,7 @@ void menu(char decodedChar)
      618:	80 91 c0 02 	lds	r24, 0x02C0	; 0x8002c0 <menustep>
      61c:	90 91 c1 02 	lds	r25, 0x02C1	; 0x8002c1 <menustep+0x1>
 		}
+		///Resets to the main menu start screen
 		else if (menustep == 4){
      620:	04 97       	sbiw	r24, 0x04	; 4
      622:	09 f0       	breq	.+2      	; 0x626 <menu+0x1ac>
@@ -1018,6 +1022,8 @@ void menu(char decodedChar)
      78c:	90 93 c1 02 	sts	0x02C1, r25	; 0x8002c1 <menustep+0x1>
      790:	80 93 c0 02 	sts	0x02C0, r24	; 0x8002c0 <menustep>
 		break;
+		
+		///Creates an integer from the keyspressed
 		case '*':
 		if (menustep = 30){
      794:	80 91 bc 02 	lds	r24, 0x02BC	; 0x8002bc <__data_end>
@@ -1063,6 +1069,8 @@ void menu(char decodedChar)
      7f2:	80 91 bc 02 	lds	r24, 0x02BC	; 0x8002bc <__data_end>
 		}
 		break;
+		
+		///Passes the integer to the Red LED Port
 		case '#':
 		if (menustep = 30){
      7f6:	90 91 bd 02 	lds	r25, 0x02BD	; 0x8002bd <__data_end+0x1>

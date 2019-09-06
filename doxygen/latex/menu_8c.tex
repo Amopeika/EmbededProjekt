@@ -1,0 +1,163 @@
+\hypertarget{menu_8c}{}\doxysection{Embeded\+Projekt/\+L\+C\+D/menu.c File Reference}
+\label{menu_8c}\index{EmbededProjekt/LCD/menu.c@{EmbededProjekt/LCD/menu.c}}
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+L\+C\+D/lcd.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{menu_8c_a31e20330f8ce94e0dd10b005a15c5898}{L\+E\+D\+\_\+\+R\+ED}}~O\+C\+R3C
+\item 
+\#define \mbox{\hyperlink{menu_8c_aca338dbd19d7940923334629f6e5f3b7}{L\+E\+D\+\_\+\+G\+R\+E\+EN}}~O\+C\+R3A
+\item 
+\#define \mbox{\hyperlink{menu_8c_ae2e40566d27689f8581d7b0f12271d45}{L\+E\+D\+\_\+\+B\+L\+UE}}~O\+C\+R3B
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8c_a6575794b218c72da45f62de182373018}{menu}} (char decoded\+Char)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static volatile int \mbox{\hyperlink{menu_8c_a08a9573da00df99b0932811e940b66cd}{loadmenu}} = 0
+\item 
+static volatile int \mbox{\hyperlink{menu_8c_a1f0263f03312b14dd0c21b4aa94d225c}{menustep}} = 0
+\item 
+static volatile int \mbox{\hyperlink{menu_8c_aa303694d556d9162cba6af8f2026db2f}{keypressint}}
+\item 
+static volatile int \mbox{\hyperlink{menu_8c_a9bf77b9e7941686f4e43fb230760d865}{R}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{menu_8c_ae2e40566d27689f8581d7b0f12271d45}\label{menu_8c_ae2e40566d27689f8581d7b0f12271d45}} 
+\index{menu.c@{menu.c}!LED\_BLUE@{LED\_BLUE}}
+\index{LED\_BLUE@{LED\_BLUE}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{LED\_BLUE}{LED\_BLUE}}
+{\footnotesize\ttfamily \#define L\+E\+D\+\_\+\+B\+L\+UE~O\+C\+R3B}
+
+
+
+Definition at line 30 of file menu.\+c.
+
+\mbox{\Hypertarget{menu_8c_aca338dbd19d7940923334629f6e5f3b7}\label{menu_8c_aca338dbd19d7940923334629f6e5f3b7}} 
+\index{menu.c@{menu.c}!LED\_GREEN@{LED\_GREEN}}
+\index{LED\_GREEN@{LED\_GREEN}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{LED\_GREEN}{LED\_GREEN}}
+{\footnotesize\ttfamily \#define L\+E\+D\+\_\+\+G\+R\+E\+EN~O\+C\+R3A}
+
+
+
+Definition at line 29 of file menu.\+c.
+
+\mbox{\Hypertarget{menu_8c_a31e20330f8ce94e0dd10b005a15c5898}\label{menu_8c_a31e20330f8ce94e0dd10b005a15c5898}} 
+\index{menu.c@{menu.c}!LED\_RED@{LED\_RED}}
+\index{LED\_RED@{LED\_RED}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{LED\_RED}{LED\_RED}}
+{\footnotesize\ttfamily \#define L\+E\+D\+\_\+\+R\+ED~O\+C\+R3C}
+
+Titel\+: \mbox{\hyperlink{menu_8c}{menu.\+c}}
+
+Author\+: Kevin Pike Darmer
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Key  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Menu Display and Choices   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Key  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Menu Display and Choices   }\\\cline{1-2}
+\endhead
+1  &1   \\\cline{1-2}
+2  &2   \\\cline{1-2}
+3  &3   \\\cline{1-2}
+4  &4   \\\cline{1-2}
+5  &5   \\\cline{1-2}
+6  &6   \\\cline{1-2}
+7  &7   \\\cline{1-2}
+8  &8/\+N\+E\+XT   \\\cline{1-2}
+9  &9/\+B\+A\+CK   \\\cline{1-2}
+0  &0   \\\cline{1-2}
+$\ast$  &Accept   \\\cline{1-2}
+\#  &Enter   \\\cline{1-2}
+A  &Temparatur   \\\cline{1-2}
+B  &Fan Speed   \\\cline{1-2}
+C  &R\+GB Coloring   \\\cline{1-2}
+D  &Back to Main Menu   \\\cline{1-2}
+\end{longtabu}
+
+
+Definition at line 28 of file menu.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{menu_8c_a6575794b218c72da45f62de182373018}\label{menu_8c_a6575794b218c72da45f62de182373018}} 
+\index{menu.c@{menu.c}!menu@{menu}}
+\index{menu@{menu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}\item[{char}]{decoded\+Char }\end{DoxyParamCaption})}
+
+Titel\+: \mbox{\hyperlink{menu_8h}{menu.\+h}}
+
+Author\+: Kevin Pike Darmer
+
+Menu Header Sends the menu screen to the display first time the menu is loaded
+
+Every time 8 is pressed while in menu increasing menustep to show different text on every keypress
+
+Resets to the main menu start screen
+
+Creates an integer from the keyspressed
+
+Passes the integer to the Red L\+ED Port
+
+Definition at line 38 of file menu.\+c.
+
+Here is the call graph for this function\+:
+% FIG 0
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{menu_8c_aa303694d556d9162cba6af8f2026db2f}\label{menu_8c_aa303694d556d9162cba6af8f2026db2f}} 
+\index{menu.c@{menu.c}!keypressint@{keypressint}}
+\index{keypressint@{keypressint}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{keypressint}{keypressint}}
+{\footnotesize\ttfamily volatile int keypressint\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 34 of file menu.\+c.
+
+\mbox{\Hypertarget{menu_8c_a08a9573da00df99b0932811e940b66cd}\label{menu_8c_a08a9573da00df99b0932811e940b66cd}} 
+\index{menu.c@{menu.c}!loadmenu@{loadmenu}}
+\index{loadmenu@{loadmenu}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{loadmenu}{loadmenu}}
+{\footnotesize\ttfamily volatile int loadmenu = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 32 of file menu.\+c.
+
+\mbox{\Hypertarget{menu_8c_a1f0263f03312b14dd0c21b4aa94d225c}\label{menu_8c_a1f0263f03312b14dd0c21b4aa94d225c}} 
+\index{menu.c@{menu.c}!menustep@{menustep}}
+\index{menustep@{menustep}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{menustep}{menustep}}
+{\footnotesize\ttfamily volatile int menustep = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 33 of file menu.\+c.
+
+\mbox{\Hypertarget{menu_8c_a9bf77b9e7941686f4e43fb230760d865}\label{menu_8c_a9bf77b9e7941686f4e43fb230760d865}} 
+\index{menu.c@{menu.c}!R@{R}}
+\index{R@{R}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily volatile int R\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 35 of file menu.\+c.
+

@@ -1,0 +1,11 @@
+digraph "EmbededProjekt/Init" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_d9c862473c01b9f14b502c53f4c21efc {
+    graph [ bgcolor="#ddddee", pencolor="black", label="EmbededProjekt" fontname="Helvetica", fontsize="10", URL="dir_d9c862473c01b9f14b502c53f4c21efc.html"]
+  dir_9d9fe70b00564b8b92e06457156fe88b [shape=box, label="Init", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_9d9fe70b00564b8b92e06457156fe88b.html"];
+  }
+  dir_9a8920b50bb804016aa29a0c6cc7579e [shape=box label="LCD" URL="dir_9a8920b50bb804016aa29a0c6cc7579e.html"];
+  dir_9d9fe70b00564b8b92e06457156fe88b->dir_9a8920b50bb804016aa29a0c6cc7579e [headlabel="1", labeldistance=1.5 headhref="dir_000005_000006.html"];
+}

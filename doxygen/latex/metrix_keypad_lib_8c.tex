@@ -1,0 +1,124 @@
+\hypertarget{metrix_keypad_lib_8c}{}\doxysection{Metrix\+Keypad/metrix\+Keypad\+Lib.c File Reference}
+\label{metrix_keypad_lib_8c}\index{MetrixKeypad/metrixKeypadLib.c@{MetrixKeypad/metrixKeypadLib.c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{metrix_keypad_lib_8c_a43bafb28b29491ec7f871319b5a3b2f8}{F\+\_\+\+C\+PU}}~16000000\+UL
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{metrix_keypad_lib_8c_a1ded3f287e58a5ef0f5b3db079e865d8}{Column\+Scan}} ()
+\item 
+char \mbox{\hyperlink{metrix_keypad_lib_8c_a57604e4f51ebcd30dedeb0cd24bf39bb}{Read\+Rows}} ()
+\item 
+char \mbox{\hyperlink{metrix_keypad_lib_8c_a33b43f076f219a6d2826f5f59ab25967}{Decode\+Keyboard}} (char collumn, char row)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{metrix_keypad_lib_8c_a43bafb28b29491ec7f871319b5a3b2f8}\label{metrix_keypad_lib_8c_a43bafb28b29491ec7f871319b5a3b2f8}} 
+\index{metrixKeypadLib.c@{metrixKeypadLib.c}!F\_CPU@{F\_CPU}}
+\index{F\_CPU@{F\_CPU}!metrixKeypadLib.c@{metrixKeypadLib.c}}
+\doxysubsubsection{\texorpdfstring{F\_CPU}{F\_CPU}}
+{\footnotesize\ttfamily \#define F\+\_\+\+C\+PU~16000000\+UL}
+
+Titel\+: \mbox{\hyperlink{metrix_keypad_lib_8c}{metrix\+Keypad\+Lib.\+c}}
+
+Author\+: Kevin Pike Darmer
+
+Keypad Config
+
+\mbox{\hyperlink{metrix_keypad_lib_8c_a1ded3f287e58a5ef0f5b3db079e865d8}{Column\+Scan()}} sets the collumns to low one by one \mbox{\hyperlink{metrix_keypad_lib_8c_a57604e4f51ebcd30dedeb0cd24bf39bb}{Read\+Rows()}} reads if a button is pressed for each row one by one \mbox{\hyperlink{metrix_keypad_lib_8c_a33b43f076f219a6d2826f5f59ab25967}{Decode\+Keyboard()}} decodes what char was pressed by looking up collumn and row number in multidimensional array \mbox{\hyperlink{menu_8c_a6575794b218c72da45f62de182373018}{menu()}} shows the menu and send the parameters to change in case of button press
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Keypad Cable  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Collumn/\+Row  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Port  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Arduino   }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Keypad Cable  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Collumn/\+Row  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Port  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Arduino   }\\\cline{1-4}
+\endhead
+4  &C1  &P\+C0  &37   \\\cline{1-4}
+3  &C2  &P\+C1  &36   \\\cline{1-4}
+2  &C3  &P\+C2  &35   \\\cline{1-4}
+1  &C4  &P\+C3  &34   \\\cline{1-4}
+5  &R1  &P\+C4  &33   \\\cline{1-4}
+6  &R2  &P\+C5  &32   \\\cline{1-4}
+7  &R3  &P\+C6  &31   \\\cline{1-4}
+8  &R4  &P\+C7  &30   \\\cline{1-4}
+\end{longtabu}
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{9}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R2  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R3  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R4  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ C1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ C2  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ C3  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ C4  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Char   }\\\cline{1-9}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R2  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R3  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ R4  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ C1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ C2  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ C3  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ C4  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Char   }\\\cline{1-9}
+\endhead
+0  &1  &1  &1  &0  &1  &1  &1  &$\ast$   \\\cline{1-9}
+1  &0  &1  &1  &0  &1  &1  &1  &7   \\\cline{1-9}
+1  &1  &0  &1  &0  &1  &1  &1  &4   \\\cline{1-9}
+1  &1  &1  &0  &0  &1  &1  &1  &1   \\\cline{1-9}
+0  &1  &1  &1  &1  &0  &1  &1  &0   \\\cline{1-9}
+1  &0  &1  &1  &1  &0  &1  &1  &8   \\\cline{1-9}
+1  &1  &0  &1  &1  &0  &1  &1  &5   \\\cline{1-9}
+1  &1  &1  &0  &1  &0  &1  &1  &2   \\\cline{1-9}
+0  &1  &1  &1  &1  &1  &0  &1  &\#   \\\cline{1-9}
+1  &0  &1  &1  &1  &1  &0  &1  &9   \\\cline{1-9}
+1  &1  &0  &1  &1  &1  &0  &1  &6   \\\cline{1-9}
+1  &1  &1  &0  &1  &1  &0  &1  &3   \\\cline{1-9}
+0  &1  &1  &1  &1  &1  &1  &0  &D   \\\cline{1-9}
+1  &0  &1  &1  &1  &1  &1  &0  &C   \\\cline{1-9}
+1  &1  &0  &1  &1  &1  &1  &0  &B   \\\cline{1-9}
+1  &1  &1  &0  &1  &1  &1  &0  &A   \\\cline{1-9}
+\end{longtabu}
+
+
+Definition at line 44 of file metrix\+Keypad\+Lib.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{metrix_keypad_lib_8c_a1ded3f287e58a5ef0f5b3db079e865d8}\label{metrix_keypad_lib_8c_a1ded3f287e58a5ef0f5b3db079e865d8}} 
+\index{metrixKeypadLib.c@{metrixKeypadLib.c}!ColumnScan@{ColumnScan}}
+\index{ColumnScan@{ColumnScan}!metrixKeypadLib.c@{metrixKeypadLib.c}}
+\doxysubsubsection{\texorpdfstring{ColumnScan()}{ColumnScan()}}
+{\footnotesize\ttfamily char Column\+Scan (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Titel\+: \mbox{\hyperlink{metrix_keypad_lib_8h}{metrix\+Keypad\+Lib.\+h}}
+
+Author\+: Kevin Pike Darmer
+
+Keyboard Header 
+
+Definition at line 48 of file metrix\+Keypad\+Lib.\+c.
+
+\mbox{\Hypertarget{metrix_keypad_lib_8c_a33b43f076f219a6d2826f5f59ab25967}\label{metrix_keypad_lib_8c_a33b43f076f219a6d2826f5f59ab25967}} 
+\index{metrixKeypadLib.c@{metrixKeypadLib.c}!DecodeKeyboard@{DecodeKeyboard}}
+\index{DecodeKeyboard@{DecodeKeyboard}!metrixKeypadLib.c@{metrixKeypadLib.c}}
+\doxysubsubsection{\texorpdfstring{DecodeKeyboard()}{DecodeKeyboard()}}
+{\footnotesize\ttfamily char Decode\+Keyboard (\begin{DoxyParamCaption}\item[{char}]{collumn,  }\item[{char}]{row }\end{DoxyParamCaption})}
+
+
+
+Definition at line 81 of file metrix\+Keypad\+Lib.\+c.
+
+\mbox{\Hypertarget{metrix_keypad_lib_8c_a57604e4f51ebcd30dedeb0cd24bf39bb}\label{metrix_keypad_lib_8c_a57604e4f51ebcd30dedeb0cd24bf39bb}} 
+\index{metrixKeypadLib.c@{metrixKeypadLib.c}!ReadRows@{ReadRows}}
+\index{ReadRows@{ReadRows}!metrixKeypadLib.c@{metrixKeypadLib.c}}
+\doxysubsubsection{\texorpdfstring{ReadRows()}{ReadRows()}}
+{\footnotesize\ttfamily char Read\+Rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file metrix\+Keypad\+Lib.\+c.
+

@@ -1,0 +1,28 @@
+\hypertarget{_init_8c}{}\doxysection{Embeded\+Projekt/\+Init/\+Init.c File Reference}
+\label{_init_8c}\index{EmbededProjekt/Init/Init.c@{EmbededProjekt/Init/Init.c}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../\+L\+C\+D/lcd.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_init_8c_a2858154e2009b0e6e616f313177762bc}{init}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_init_8c_a2858154e2009b0e6e616f313177762bc}\label{_init_8c_a2858154e2009b0e6e616f313177762bc}} 
+\index{Init.c@{Init.c}!init@{init}}
+\index{init@{init}!Init.c@{Init.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Titel\+: \mbox{\hyperlink{_init_8c}{init.\+c}}
+
+Author\+: Kevin Pike Darmer
+
+Initialisation 
+
+Definition at line 13 of file Init.\+c.
+
+Here is the call graph for this function\+:
+% FIG 0
